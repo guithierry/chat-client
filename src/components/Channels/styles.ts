@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ChatAlt, Hashtag } from "../Icons";
+import { ChatAlt, Hashtag, Plus } from "../Icons";
 
 export const Container = styled.div`
     grid-area: CHANNELS;
@@ -22,12 +22,114 @@ export const Container = styled.div`
 export const NavigationHeader = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-top: 15px;
 
-    > h2 {
-        text-transform: uppercase;
-        font-size: 13px;
-        margin-left: 5px;
+    > div {
+        display: flex;
+        align-items: center;
+
+        > h2 {
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-left: 5px;
+        }
+    }
+
+    > div:last-child {
+        cursor: pointer;
+    }
+
+    position: relative;
+`;
+
+export const IconPlus = styled(Plus)`
+    width: 22px;
+    height: 22px;
+`;
+
+interface NewChannelModalProps {
+    open?: boolean;
+}
+
+export const NewChannelModal = styled.div<NewChannelModalProps>`
+    position: absolute;
+    left: 302px;
+    /* left: 280px;
+    top: 27px; */
+
+    display: ${(props) => (props.open ? "inline" : "none")};
+
+    background-color: var(--background-two);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-color: var(--background-one);
+
+    width: 300px;
+
+    /* width: auto; */
+    padding: 15px 10px;
+
+    > form {
+        display: flex;
+        flex-direction: column;
+
+        > label {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 5px;
+
+            > span {
+                /* text-transform: lowercase; */
+                font-size: 12px;
+                font-weight: 300;
+                font-style: italic;
+
+                :before {
+                    content: " - ";
+                }
+            }
+        }
+
+        > input,
+        button {
+            outline: none;
+            border: none;
+            border-radius: 3px;
+        }
+
+        > input {
+            padding: 5px;
+            background-color: var(--background-input);
+            font-size: 15px;
+            color: white;
+        }
+
+        > button {
+            padding: 3px;
+            margin-top: 7px;
+            background-color: #3ca374;
+
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+            :hover {
+                opacity: 0.9;
+            }
+        }
+
+        .button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            :hover {
+                opacity: 0.5;
+            }
+        }
     }
 `;
 
