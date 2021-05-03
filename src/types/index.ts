@@ -7,6 +7,7 @@ export interface Channel {
 }
 
 export interface Message {
+    id?: string;
     user: ProfileObject;
     content: string;
     date: number | string;

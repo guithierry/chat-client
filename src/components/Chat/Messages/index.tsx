@@ -36,7 +36,8 @@ export default function Messages() {
 
     return (
         <Container ref={messagesRef}>
-            {messages.map(({ user, date, content }, index) => {
+            {console.log(messages)}
+            {messages.map(({ id, user, date, content }) => {
                 const today = new Date(Date.now()).getDate();
                 const dateDay = getDate(new Date(date));
 
@@ -50,7 +51,7 @@ export default function Messages() {
                 }
 
                 return (
-                    <div key={index}>
+                    <div key={id}>
                         <img src={`${user.imageUrl}`} alt={user.name} />
                         <div>
                             <h5>
