@@ -36,7 +36,6 @@ export default function Messages() {
 
     return (
         <Container ref={messagesRef}>
-            {console.log(messages)}
             {messages.map(({ id, user, date, content }) => {
                 const today = new Date(Date.now()).getDate();
                 const dateDay = getDate(new Date(date));
@@ -46,7 +45,7 @@ export default function Messages() {
                 if (dateDay === today) {
                     dateFormated = `Today at ${format(
                         new Date(date),
-                        "k:m a"
+                        "k:mm a"
                     )}`;
                 }
 
