@@ -4,26 +4,20 @@ import { ChatAlt, Hashtag, Plus } from "../Icons";
 export const Container = styled.div`
     grid-area: CHANNELS;
 
-    padding: 10px 2px 0 8px;
-
-    overflow-y: scroll;
-    overflow-x: hidden;
-
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--background-one);
-        border-radius: 4px;
-    }
+    /* padding: 10px 2px 0 8px; */
 `;
 
 export const NavigationHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 15px;
+    /* margin-top: 15px; */
+
+    padding: 14px 14px;
+    padding-left: 8px;
+
+    box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
+        0 2px 0 rgba(4, 4, 5, 0.05);
 
     > div {
         display: flex;
@@ -54,9 +48,8 @@ interface NewChannelModalProps {
 
 export const NewChannelModal = styled.div<NewChannelModalProps>`
     position: absolute;
-    left: 302px;
-    /* left: 280px;
-    top: 27px; */
+    top: 40px;
+    left: 280px;
 
     display: ${(props) => (props.open ? "inline" : "none")};
 
@@ -137,6 +130,22 @@ export const NavigationBody = styled.div`
     display: flex;
     flex-direction: column;
     margin: 5px 0;
+    padding-left: 8px;
+    padding-right: 2px;
+
+    height: calc(100vh - 70px - 60px);
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--background-one);
+        border-radius: 4px;
+    }
 `;
 
 interface ChannelLinkProps {
